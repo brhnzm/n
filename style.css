@@ -1,0 +1,93 @@
+@font-face {
+  font-family: kfgqpc;
+  src: url("kfgqpc.ttf")}
+@font-face {
+  font-family: tradbdo;
+  src: url("tradbdo.ttf")}
+@font-face {
+  font-family: kalpurush;
+  src: url("kalpurush.ttf")}
+@font-face {
+  font-family: alvi;
+  src: url("alvi.ttf")}
+@font-face {
+  font-family:noori ;
+  src: url("noori.ttf")}
+@font-face {
+  font-family: satisfy ;
+  src: url("satisfy.ttf")}
+@font-face {
+  font-family: helvetica ;
+  src: url("helvetica.otf")}
+
+
+
+
+
+
+
+.kalpurush {font-family: kalpurush,sans-serif;font-size:18px;}
+
+.tradbdo {font-family: tradbdo,sans-serif; font-size:24px;direction: rtl;text-align: right;}
+
+.kfgqpc {font-family: kfgqpc,sans-serif; font-size:20px;direction: rtl;text-align: right;
+} 
+
+.noori {font-family: noori,sans-serif; font-size:24px;direction: rtl;text-align: right;}
+
+.alvi {font-family: alvi,sans-serif; font-size:24px;direction: rtl;text-align: right;} 
+
+.satisfy {font-family: satisfy,sans-serif; font-size:24px;} 
+
+.helvetica {font-family: helvetica, cursive; font-size:18px;} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
