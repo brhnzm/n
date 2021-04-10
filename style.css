@@ -19,6 +19,14 @@
 @font-face {
   font-family: helvetica ;
   src: url("helvetica.otf")}
+@font-face {
+  font-family:SolaimanLipi;
+  src: url("SolaimanLipi_2012.ttf")}
+@font-face {
+  font-family: SolaimanLipi_Bold;
+  src: url("SolaimanLipi_Bold_2012.ttf")}
+
+
 
 
 
@@ -40,6 +48,15 @@
 .satisfy {font-family: satisfy,sans-serif; font-size:24px;} 
 
 .helvetica {font-family: helvetica, cursive; font-size:18px;} 
+
+.SolaimanLipi {font-family: SolaimanLipi,sans-serif; font-size:20px;}
+
+.SolaimanLipi_Bold {font-family: SolaimanLipi_Bold,sans-serif; font-size:20px;} 
+ 
+
+
+
+
 
 
 
