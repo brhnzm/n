@@ -5,6 +5,9 @@
   font-family: tradbdo;
   src: url("tradbdo.ttf")}
 @font-face {
+  font-family: mylotus;
+  src: url("mylotus.ttf")}  
+@font-face {
   font-family: kalpurush;
   src: url("kalpurush.ttf")}
 @font-face {
@@ -37,6 +40,7 @@
 .kalpurush {font-family: kalpurush,sans-serif;font-size:22px;}
 
 .tradbdo {font-family: tradbdo,sans-serif; font-size:24px;direction: rtl;text-align: right;}
+.mylotus {font-family:mylotus,sans-serif; font-size:24px;direction: rtl;text-align: right;}
 
 .kfgqpc {font-family: kfgqpc,sans-serif; font-size:20px;direction: rtl;text-align: right;
 } 
