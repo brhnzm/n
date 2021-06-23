@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hibernate_computer_CMD_command</title>
+</head>
+<body>
+<p><h3>Command 1:To turn on hibernation if it is off.</h3><br><br>
+<mark> powercfg -h on </mark></p>
+
+<p><h3>Command 2: To put computer in hibernation.</h3><br><br>
+<mark>shutdown /h</mark><br>
+Or <br> <mark>shutdown -h</mark> </p>
+
+<h3>Hibernate at specific time:</h3>
+<p>If you really want to hibernate your computer after a specific time, all you need to do is to enter this command below into the cmd. i.e:<br><br>
+<mark><b>timeout /t 36000 /nobreak && shutdown /h</b></mark><br><br>
+Now the computer will start to count down from 36000 to 0 before it will hibernate. But you should note that you can change 36000 into any number of seconds that suits you.</p>
+<h3>Shutdown Command 1:</h3>
+<p><mark><b>shutdown -p -f</b></mark></p>
+<h3>Shutdown Command 2:</h3>
+<p><mark><b>shutdown -s -f -t 00</b></mark><br>
+<b>Note:</b> Instead of 00, if you write 25, then it will shutdown after 25 seconds.<br>
+"-f" is to force shutdown. You can go without it.</p>
+<h3>Command to abort/cancel System Shutdown or Restart</h3>
+<p><mark><b>shutdown /a</b></mark></p>
+<p><b>Note:</b> There's no need to abort hibernation command because it gets aborted if you close the CMD command file.</p>
+
+<h3>Command to restart:</h3>
+<p><mark><b>shutdown -r -f -t 00</b></mark></p>
+
+<p><mark><b>You can write these codes in text file and change the extension .txt into .bat <br>
+After that you can execute the command by double clicking the file.</b></mark></p>
+
+<!--
+<h3></h3>
+<p><mark><b></b></mark></p>
+-->
+</body>
+</html>
