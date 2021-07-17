@@ -1,46 +1,46 @@
 @font-face {
   font-family: kfgqpc;
-  src: url("/fonts/kfgqpc.ttf");
+  src: url("../fonts/kfgqpc.ttf");
 }
 @font-face {
   font-family: tradbdo;
-  src: url("/fonts/tradbdo.ttf");
+  src: url("../fonts/tradbdo.ttf");
 }
 @font-face {
   font-family: tradbdon;
-  src: url("/fonts/Traditional Naskh.ttf");
+  src: url("../fonts/Traditional Naskh.ttf");
 }
 @font-face {
   font-family: tradbdonb;
-  src: url("/fonts/Traditional Naskh Bold.ttf");
+  src: url("../fonts/Traditional Naskh Bold.ttf");
 }
 @font-face {
   font-family: kalpurush;
-  src: url("/fonts/kalpurush.ttf");
+  src: url("../fonts/kalpurush.ttf");
 }
 @font-face {
   font-family: alvi;
-  src: url("/fonts/alvi.ttf");
+  src: url("../fonts/alvi.ttf");
 }
 @font-face {
   font-family: noori;
-  src: url("/fonts/noori.ttf");
+  src: url("../fonts/noori.ttf");
 }
 @font-face {
   font-family: satisfy;
-  src: url("/fonts/satisfy.ttf");
+  src: url("../fonts/satisfy.ttf");
 }
 @font-face {
   font-family: helvetica;
-  src: url("/fonts/helvetica.otf");
+  src: url("../fonts/helvetica.otf");
 }
 @font-face {
   font-family: SolaimanLipi;
-  src: url("/fonts/SolaimanLipi_2012.ttf");
+  src: url("../fonts/SolaimanLipi_2012.ttf");
 }
 @font-face {
   font-family: SolaimanLipi_Bold;
-  src: url("/fonts/SolaimanLipi_Bold_2012.ttf");
+  src: url("../fonts/SolaimanLipi_Bold_2012.ttf");
 }
 
 .kalpurush {
