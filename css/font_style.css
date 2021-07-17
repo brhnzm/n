@@ -1,0 +1,114 @@
+@font-face {
+  font-family: kfgqpc;
+  src: url("/fonts/kfgqpc.ttf");
+}
+@font-face {
+  font-family: tradbdo;
+  src: url("/fonts/tradbdo.ttf");
+}
+@font-face {
+  font-family: tradbdon;
+  src: url("/fonts/Traditional Naskh.ttf");
+}
+@font-face {
+  font-family: tradbdonb;
+  src: url("/fonts/Traditional Naskh Bold.ttf");
+}
+@font-face {
+  font-family: kalpurush;
+  src: url("/fonts/kalpurush.ttf");
+}
+@font-face {
+  font-family: alvi;
+  src: url("/fonts/alvi.ttf");
+}
+@font-face {
+  font-family: noori;
+  src: url("/fonts/noori.ttf");
+}
+@font-face {
+  font-family: satisfy;
+  src: url("/fonts/satisfy.ttf");
+}
+@font-face {
+  font-family: helvetica;
+  src: url("/fonts/helvetica.otf");
+}
+@font-face {
+  font-family: SolaimanLipi;
+  src: url("/fonts/SolaimanLipi_2012.ttf");
+}
+@font-face {
+  font-family: SolaimanLipi_Bold;
+  src: url("/fonts/SolaimanLipi_Bold_2012.ttf");
+}
+
+.kalpurush {
+  font-family: kalpurush;
+  font-size: 22px;
+}
+
+.tradbdo {
+  font-family: tradbdo;
+  font-size: 24px;
+  direction: rtl;
+  text-align: right;
+}
+.tradbdon {
+  font-family: tradbdon;
+  font-size: 24px;
+  direction: rtl;
+  text-align: right;
+}
+.tradbdonb {
+  font-family: tradbdonb;
+  font-size: 24px;
+  direction: rtl;
+  text-align: right;
+}
+.kfgqpc {
+  font-family: kfgqpc;
+  font-size: 20px;
+  direction: rtl;
+  text-align: right;
+}
+
+.noori {
+  font-family: noori;
+  font-size: 24px;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.6;
+  word-spacing: 2px;
+    
+}
+
+.alvi {
+  font-family: alvi;
+  font-size: 24px;
+  direction: rtl;
+  text-align: right;
+  line-height: 1.6;
+  word-spacing: 2px;
+    
+}
+
+.satisfy {
+  font-family: satisfy;
+  font-size: 24px;
+}
+
+.helvetica {
+  font-family: helvetica, cursive;
+  font-size: 18px;
+}
+
+.SolaimanLipi {
+  font-family: SolaimanLipi;
+  font-size: 20px;
+}
+
+.SolaimanLipi_Bold {
+  font-family: SolaimanLipi_Bold;
+  font-size: 20px;
+}
