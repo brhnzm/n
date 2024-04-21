@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timestamp Generator</title>
+    <title>Live Timestamp Generator</title>
 </head>
 <body>
-    <button onclick="generateAndCopyTimestamp()">Regenerate & Copy to Clipboard</button>
+    <button onclick="copyTimestampToClipboard()">Copy Current Timestamp to Clipboard</button>
     <p id="timestampDisplay">Current Timestamp: </p>
     <input type="text" id="timestamp" readonly style="width: 200px;">
 
     <script>
-        function generateAndCopyTimestamp() {
+        function updateTimestamp() {
             const timestamp = Date.now();
             document.getElementById('timestamp').value = timestamp;
             document.getElementById('timestampDisplay').textContent = `Current Timestamp: ${timestamp}`;
+        }
 
+        function copyTimestampToClipboard() {
             const copyText = document.getElementById('timestamp');
             copyText.select();
             copyText.setSelectionRange(0, 99999); // For mobile devices
@@ -25,6 +27,12 @@
                 alert('Failed to copy the timestamp: ' + err);
             });
         }
+
+        // Update the timestamp every second (1000 milliseconds)
+        setInterval(updateTimestamp, 1000);
+
+        // Initial call to set timestamp when page loads
+        updateTimestamp();
     </script>
 </body>
 </html>
