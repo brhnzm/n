@@ -6,7 +6,7 @@
     <title>Live Timestamp Generator</title>
 </head>
 <body>
-    <button onclick="copyTimestampToClipboard()">Copy Current Timestamp to Clipboard</button>
+    <button onclick="generateAndCopyTimestamp()">Copy Current Timestamp to Clipboard</button>
     <p id="timestampDisplay">Current Timestamp: </p>
     <input type="text" id="timestamp" readonly style="width: 200px;">
 
@@ -17,7 +17,7 @@
             document.getElementById('timestampDisplay').textContent = `Current Timestamp: ${timestamp}`;
         }
 
-        function copyTimestampToClipboard() {
+        function generateAndCopyTimestamp() {
             const copyText = document.getElementById('timestamp');
             copyText.select();
             copyText.setSelectionRange(0, 99999); // For mobile devices
