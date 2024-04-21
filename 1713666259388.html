@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unique Filename Generator</title>
+<style>
+/* Styling for the buttons */
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+<script>
+function generateAndCopy() {
+  const timestamp = Date.now();
+  const uniqueFilename = `${timestamp}`;
+  const filenameInput = document.getElementById('filename');
+  const generateCopyButton = document.getElementById('generateCopyButton');
+  
+  filenameInput.value = uniqueFilename;
+  filenameInput.select();
+  
+  navigator.clipboard.writeText(uniqueFilename) // Using Clipboard API for better compatibility
+    .then(() => {
+      generateCopyButton.textContent = 'generated & copied to clipboard';
+      setTimeout(function() {
+        generateCopyButton.textContent = 'generate & copy';
+      }, 2000); // Increase timeout to make it noticeable
+    })
+    .catch(err => {
+      console.error('Failed to copy text: ', err);
+      alert('Failed to copy text, please try manually.');
+    });
+}
+</script>
+</head>
+<body>
+
+<h2>Unique Filename Generator (milliseconds)</h2>
+<input type="text" id="filename" readonly>
+<button id="generateCopyButton" class="button" onclick="generateAndCopy()">generate & copy</button>
+
+</body>
+</html>
