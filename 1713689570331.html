@@ -3,55 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coordinates of current location</title>
+<title>Live Geolocation Tracker</title>
 </head>
 <body>
-<h1>Find Your Coordinates</h1>
-<button onclick="refreshAndGetLocation()">Refresh & Copy Coordinates</button>
+<h1>Track Your Coordinates</h1>
+<button id="toggleButton" onclick="toggleTracking()">Start Tracking</button>
 <input type="text" id="coordinates" readonly style="width:300px; margin-top:10px;">
+<button onclick="copyCoordinates()">Copy Coordinates</button>
 <p id="status"></p>
 
 <script>
-function refreshAndGetLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
+var watchID = null;
+
+function toggleTracking() {
+    if (watchID !== null) {
+        navigator.geolocation.clearWatch(watchID);
+        watchID = null;
+        document.getElementById('status').textContent = '';
+        document.getElementById('coordinates').value = '';
+        document.getElementById('toggleButton').textContent = 'Start Tracking';
     } else {
-        document.getElementById("status").innerHTML = "Geolocation is not supported by this browser.";
+        if (navigator.geolocation) {
+            watchID = navigator.geolocation.watchPosition(showPosition, showError, { 
+                enableHighAccuracy: true,
+                timeout: 10000,
+                maximumAge: 0
+            });
+            document.getElementById('toggleButton').textContent = 'Stop Tracking';
+        } else {
+            document.getElementById("status").textContent = "Geolocation is not supported by this browser.";
+        }
     }
 }
 
 function showPosition(position) {
     var latitude = position.coords.latitude;
     var longitude = position.coords.longitude;
-    var coordinates = document.getElementById("coordinates");
-    coordinates.value = latitude + ", " + longitude; // Display the coordinates
+    document.getElementById("coordinates").value = `${latitude}, ${longitude}`;
+}
 
-    coordinates.select(); // Select the text field
-    coordinates.setSelectionRange(0, 99999); // For mobile devices
-    navigator.clipboard.writeText(coordinates.value) // Use modern Clipboard API to copy text
-        .then(() => {
-            document.getElementById("status").innerHTML = "Coordinates copied to clipboard!";
-            setTimeout(() => { document.getElementById("status").innerHTML = ""; }, 2000); // Clear message after 2 seconds
-        })
-        .catch(err => {
-            document.getElementById("status").innerHTML = "Failed to copy coordinates: " + err;
-        });
+function copyCoordinates() {
+    var coordinates = document.getElementById("coordinates");
+    coordinates.select();
+    document.execCommand("copy");
+    alert('Coordinates copied to clipboard!');
 }
 
 function showError(error) {
     switch(error.code) {
         case error.PERMISSION_DENIED:
-            document.getElementById("status").innerHTML = "User denied the request for Geolocation.";
+            document.getElementById("status").textContent = "User denied the request for Geolocation.";
             break;
         case error.POSITION_UNAVAILABLE:
-            document.getElementById("status").innerHTML = "Location information is unavailable.";
+            document.getElementById("status").textContent = "Location information is unavailable.";
             break;
         case error.TIMEOUT:
-            document.getElementById("status").innerHTML = "The request to get user location timed out.";
+            document.getElementById("status").textContent = "The request to get user location timed out.";
             break;
         default:
-            document.getElementById("status").innerHTML = "An unknown error occurred.";
+            document.getElementById("status").textContent = "An unknown error occurred.";
             break;
+    }
+    if (watchID !== null) {
+        navigator.geolocation.clearWatch(watchID);
+        watchID = null;
+        document.getElementById('toggleButton').textContent = 'Start Tracking';
     }
 }
 </script>
