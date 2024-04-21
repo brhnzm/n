@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geolocation Example</title>
+</head>
+<body>
+<h1>Find Your Coordinates</h1>
+<button onclick="getLocation()">Get My Location</button>
+<button onclick="getLocation()">Refresh</button>
+<input type="text" id="coordinates" readonly style="width:300px; margin-top:10px;">
+<button onclick="copyCoordinates()" id="copyButton">Copy to Clipboard</button>
+<p id="status"></p>
+
+<script>
+function getLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else {
+        document.getElementById("status").innerHTML = "Geolocation is not supported by this browser.";
+    }
+}
+
+function showPosition(position) {
+    var latitude = position.coords.latitude;
+    var longitude = position.coords.longitude;
+    document.getElementById("coordinates").value = 
+        latitude + ", " + longitude; // Simplified format
+}
+
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            document.getElementById("status").innerHTML = "User denied the request for Geolocation.";
+            break;
+        case error.POSITION_UNAVAILABLE:
+            document.getElementById("status").innerHTML = "Location information is unavailable.";
+            break;
+        case error.TIMEOUT:
+            document.getElementById("status").innerHTML = "The request to get user location timed out.";
+            break;
+        default:
+            document.getElementById("status").innerHTML = "An unknown error occurred.";
+            break;
+    }
+}
+
+function copyCoordinates() {
+    var coordinates = document.getElementById("coordinates");
+    var copyButton = document.getElementById("copyButton");
+    coordinates.select(); // Select the text field
+    coordinates.setSelectionRange(0, 99999); // For mobile devices
+    document.execCommand("copy"); // Copy the text inside the text field
+    copyButton.innerText = "Copied to Clipboard!";
+    setTimeout(() => { copyButton.innerText = "Copy to Clipboard"; }, 2000); // Reset button text after 2 seconds
+}
+</script>
+
+</body>
+</html>
+
