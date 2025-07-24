@@ -158,11 +158,13 @@
       const summary = document.getElementById("routineSummary");
 
       // Reset highlights
-      for (let row of table.rows) {
-        for (let cell of row.cells) {
-          cell.classList.remove("highlight", "today-col");
-        }
-      }
+      for (let i = 0; i < table.rows.length; i++) {
+  const row = table.rows[i];
+  row.classList.remove("highlight"); // remove from the row itself
+  for (let cell of row.cells) {
+    cell.classList.remove("highlight", "today-col");
+  }
+}
 
       let currentClass = "—", nextClass = "—";
       let totalToday = 0;
