@@ -127,130 +127,130 @@
   <div id="routineSummary">
     <!-- Summary will be inserted here -->
   </div>
+<script>
+  const periods = [
+    { start: "8:30", end: "9:15" },
+    { start: "9:15", end: "9:55" },
+    { start: "9:55", end: "10:35" },
+    { start: "10:35", end: "11:15" },
+    { start: "11:15", end: "11:55" },
+    { start: "11:55", end: "12:35" },
+    { start: "12:35", end: "13:15" }
+  ];
 
-  <script>
-    const periods = [
-      { start: "8:30", end: "9:15" },
-      { start: "9:15", end: "9:55" },
-      { start: "9:55", end: "10:35" },
-      { start: "10:35", end: "11:15" },
-      { start: "11:15", end: "11:55" },
-      { start: "11:55", end: "12:35" },
-      { start: "12:35", end: "13:15" }
-    ];
+  function getCurrentPeriodIndex(now) {
+    for (let i = 0; i < periods.length; i++) {
+      const [sh, sm] = periods[i].start.split(":").map(Number);
+      const [eh, em] = periods[i].end.split(":").map(Number);
+      const start = new Date(now); start.setHours(sh, sm, 0, 0);
+      const end = new Date(now); end.setHours(eh, em, 0, 0);
+      if (now >= start && now < end) return i;
+    }
+    return -1;
+  }
 
-    function getCurrentPeriodIndex(now) {
-      for (let i = 0; i < periods.length; i++) {
-        const [sh, sm] = periods[i].start.split(":").map(Number);
-        const [eh, em] = periods[i].end.split(":").map(Number);
-        const start = new Date(now); start.setHours(sh, sm, 0, 0);
-        const end = new Date(now); end.setHours(eh, em, 0, 0);
-        if (now >= start && now < end) return i;
+  function highlightRoutine() {
+    const now = new Date();
+    const dayIndex = now.getDay(); // Sunday = 0
+    const periodIndex = getCurrentPeriodIndex(now);
+    const table = document.getElementById("routineTable");
+    const summary = document.getElementById("routineSummary");
+
+    // Reset highlights
+    for (let i = 0; i < table.rows.length; i++) {
+      const row = table.rows[i];
+      row.classList.remove("highlight");
+      for (let cell of row.cells) {
+        cell.classList.remove("highlight", "today-col");
       }
-      return -1;
     }
 
-    function highlightRoutine() {
-      const now = new Date();
-      const dayIndex = now.getDay(); // Sunday = 0
-      const periodIndex = getCurrentPeriodIndex(now);
-      const table = document.getElementById("routineTable");
-      const summary = document.getElementById("routineSummary");
+    let currentClass = "—", nextClass = "—";
+    let totalToday = 0;
+    let totalWeek = 0;
 
-      // Reset highlights
-      for (let i = 0; i < table.rows.length; i++) {
-  const row = table.rows[i];
-  row.classList.remove("highlight"); // remove from the row itself
-  for (let cell of row.cells) {
-    cell.classList.remove("highlight", "today-col");
-  }
-}
+    // Count total classes in the week
+    for (let r = 1; r < table.rows.length; r++) {
+      for (let c = 2; c <= 6; c++) {
+        const val = table.rows[r].cells[c].textContent.trim();
+        if (val !== "—" && val !== "") totalWeek++;
+      }
+    }
 
-      let currentClass = "—", nextClass = "—";
-      let totalToday = 0;
-      let totalWeek = 0;
+    if (dayIndex >= 0 && dayIndex <= 4) {
+      const col = dayIndex + 2;
+      table.rows[0].cells[col].classList.add("today-col");
 
-      // Count total classes in the week
-      for (let r = 1; r < table.rows.length; r++) {
-        for (let c = 2; c <= 6; c++) {
-          const val = table.rows[r].cells[c].textContent.trim();
-          if (val !== "—" && val !== "") totalWeek++;
+      for (let i = 1; i < table.rows.length; i++) {
+        const cell = table.rows[i].cells[col];
+        cell.classList.add("today-col");
+
+        const content = cell.textContent.trim();
+        if (content !== "—" && content !== "") {
+          totalToday++;
         }
       }
 
-      if (dayIndex >= 0 && dayIndex <= 4) {
-        const col = dayIndex + 2;
-        table.rows[0].cells[col].classList.add("today-col");
+      if (periodIndex !== -1) {
+        const row = table.rows[periodIndex + 1];
+        const cell = row.cells[col];
+        const content = cell.textContent.trim();
+        currentClass = (content === "—" || content === "") 
+          ? `Free (${periods[periodIndex].start} - ${periods[periodIndex].end})`
+          : `${content} (${periods[periodIndex].start} - ${periods[periodIndex].end})`;
+        row.classList.add("highlight");
+        cell.classList.add("highlight");
 
-        for (let i = 1; i < table.rows.length; i++) {
-          const cell = table.rows[i].cells[col];
-          cell.classList.add("today-col");
-
-          const content = cell.textContent.trim();
-          if (content !== "—" && content !== "") {
-            totalToday++;
+        for (let i = periodIndex + 1; i < periods.length; i++) {
+          const nextCell = table.rows[i + 1]?.cells[col];
+          const nextContent = nextCell?.textContent.trim();
+          if (nextCell && nextContent !== "—" && nextContent !== "") {
+            nextClass = `${nextContent} (${periods[i].start} - ${periods[i].end})`;
+            break;
           }
         }
-
-        if (periodIndex !== -1) {
-          const row = table.rows[periodIndex + 1];
-          const cell = row.cells[col];
-          currentClass = cell.textContent.trim() || "Free";
-          row.classList.add("highlight");
-          cell.classList.add("highlight");
-
-          for (let i = periodIndex + 1; i < periods.length; i++) {
+      } else {
+        for (let i = 0; i < periods.length; i++) {
+          const [sh, sm] = periods[i].start.split(":").map(Number);
+          const start = new Date(now); start.setHours(sh, sm, 0, 0);
+          if (now < start) {
             const nextCell = table.rows[i + 1]?.cells[col];
-            if (nextCell && nextCell.textContent.trim() !== "—" && nextCell.textContent.trim() !== "") {
-              nextClass = nextCell.textContent.trim();
+            const nextContent = nextCell?.textContent.trim();
+            if (nextCell && nextContent !== "—" && nextContent !== "") {
+              nextClass = `${nextContent} (${periods[i].start} - ${periods[i].end})`;
               break;
             }
           }
-        } else {
-          for (let i = 0; i < periods.length; i++) {
-            const [sh, sm] = periods[i].start.split(":").map(Number);
-            const start = new Date(now); start.setHours(sh, sm, 0, 0);
-            if (now < start) {
-              const nextCell = table.rows[i + 1]?.cells[col];
-              if (nextCell && nextCell.textContent.trim() !== "—" && nextCell.textContent.trim() !== "") {
-                nextClass = nextCell.textContent.trim();
-                break;
-              }
-            }
-          }
         }
       }
-
-      summary.innerHTML = `
-        <span><strong>Current class:</strong> ${currentClass}</span>
-        <span><strong>Next class:</strong> ${nextClass}</span>
-        <span><strong>Total classes today:</strong> ${totalToday}</span>
-        <span><strong>Total classes in the week:</strong> ${totalWeek}</span>
-      `;
     }
 
+    summary.innerHTML = `
+      <span><strong>Current class:</strong> ${currentClass}</span>
+      <span><strong>Next class:</strong> ${nextClass}</span>
+      <span><strong>Total classes today:</strong> ${totalToday}</span>
+      <span><strong>Total classes in the week:</strong> ${totalWeek}</span>
+    `;
+  }
 
-    function enableRowClickHighlight() {
-  const rows = document.querySelectorAll("#routineTable tr");
-  rows.forEach((row, index) => {
-    if (index === 0) return; // skip header row
-    row.addEventListener("click", () => {
-      // Remove 'selected' from all rows
-      rows.forEach(r => r.classList.remove("selected"));
-      // Add 'selected' to clicked row
-      row.classList.add("selected");
+  function enableRowClickHighlight() {
+    const rows = document.querySelectorAll("#routineTable tr");
+    rows.forEach((row, index) => {
+      if (index === 0) return; // skip header row
+      row.addEventListener("click", () => {
+        rows.forEach(r => r.classList.remove("selected"));
+        row.classList.add("selected");
+      });
     });
-  });
-}
+  }
 
-    window.onload = function() {
-  highlightRoutine();
-  enableRowClickHighlight();
-  setInterval(highlightRoutine, 1000); // refresh every 1 seconds
-};
+  window.onload = function () {
+    highlightRoutine();
+    enableRowClickHighlight();
+    setInterval(highlightRoutine, 1000); // refresh every 1 second
+  };
+</script>
 
-
-  </script>
 </body>
 </html>
 
