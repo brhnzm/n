@@ -1,261 +1,366 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>My Class Routine</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      padding: 10px;
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 10px;
-    }
-    th, td {
-      white-space: nowrap;
-      border: 1px solid #999;
-      padding: 6px;
-      text-align: center;
-    }
-    th {
-      background-color: #f0f0f0;
-    }
-    
-    tr.selected {
-  background-color: #dcedc8 !important; /* light green */
+<meta charset="UTF-8">
+<title>My Routine</title>
+
+<style>
+
+body{
+font-family:sans-serif;
+padding:10px;
 }
 
-  
+table{
+border-collapse:collapse;
+width:100%;
+margin-top:10px;
+}
 
+th,td{
+border:1px solid #999;
+padding:6px;
+text-align:center;
+white-space:nowrap;
+}
 
-    .highlight {
-      background-color: #ffecb3 !important;
-      font-weight: bold;
-    }
-    .today-col {
-      background-color: #e0f7fa;
-    }
-    #routineSummary {
-      margin-top: 15px;
-      font-size: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-  </style>
+th{
+background:#f0f0f0;
+}
+
+.highlight{
+background:#ffecb3 !important;
+font-weight:bold;
+}
+
+.today-col{
+background:#e0f7fa;
+}
+
+.selected{
+background:#dcedc8 !important;
+}
+
+#routineSummary{
+margin-top:15px;
+display:flex;
+flex-direction:column;
+gap:4px;
+font-size:16px;
+}
+
+</style>
+
 </head>
+
 <body>
-  <h2>My Class Routine</h2>
 
-  <table id="routineTable">
-    <tr>
-      <th>Period</th>
-      <th>Time</th>
-      <th>Sunday</th>
-      <th>Monday</th>
-      <th>Tuesday</th>
-      <th>Wednesday</th>
-      <th>Thursday</th>
-    </tr>
-    <tr>
-      <td>1</td>
-      <td>8:30 - 9:15</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>9:15 - 9:55</td>
-      <td>Arabic-2 <br>@Class-10-C</td>
-      <td>Arabic-2 <br>@Class-10-C</td>
-      <td>Faraiz <br>@Alim-1st-B</td>
-      <td>Faraiz <br>@Alim-1st-B</td>
-      <td>Balagat <br>@Alim-1st-B</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td>9:55 - 10:35</td>
-      <td>Quran <br>@Alim-1st-C</td>
-      <td>Quran <br>@Alim-1st-C</td>
-      <td>Quran <br>@Alim-1st-C</td>
-      <td>—</td>
-      <td>Hewar <br>@Fazil-1st-B</td>
-    </tr>
-    <tr>
-      <td>4</td>
-      <td>10:55 - 11:35</td>
-      <td>Qawaid <br>@Hons-2nd (Quran+Hadith)</td>
-      <td>Qawaid <br>@Hons-2nd (Quran+Hadith)</td>
-      <td>Bangladesh studies <br>@Hons-1st (Fiqh)</td>
-      <td>Bangladesh studies <br>@Hons-1st (Fiqh)</td>
-      <td>Bangladesh studies <br>@Hons-1st (Fiqh)</td>
-    </tr>
-    <tr>
-      <td>5</td>
-      <td>11:35 - 12:15</td>
-      <td>—</td>
-      <td>Hadith <br>@Alim-1st-C</td>
-      <td>Hadith <br>@Alim-1st-C</td>
-      <td>Usule Hadith <br>@Fazil-1st-A</td>
-      <td>Usule Hadith <br>@Fazil-1st-A</td>
-    </tr>
-    <tr>
-      <td>6</td>
-      <td>12:15 - 12:50</td>
-      <td>Islamic history <br>@Alim-2nd-B</td>
-      <td>Islamic history <br>@Alim-2nd-B</td>
-      <td>—</td>
-      <td>Comparative religion <br>@Hons-3rd</td>
-      <td>Comparative religion <br>@Hons-3rd</td>
-    </tr>
-    <tr>
-      <td>7</td>
-      <td>12:50 - 13:25</td>
-      <td>Islamic history 2nd part <br>@Fazil-3rd</td>
-      <td>Islamic history 2nd part <br>@Fazil-3rd</td>
-      <td>Tadribul Lugah <br>@Alim-1st-B</td>
-      <td>Islamic history 1st part <br>@Fazil-3rd</td>
-      <td>Islamic history 1st part <br>@Fazil-3rd</td>
-    </tr>
-  </table>
+<h2>My Class Routine</h2>
 
-  <div id="routineSummary">
-    <!-- Summary will be inserted here -->
-  </div>
-<embed src="/Download/BN-0000000889.pdf" type="application/pdf" width="100%" height="600px" />
+<table id="routineTable">
 
-<img src="/JAMEA/IMG-20250804-WA0001.jpg" alt="Description of image" style="max-width: 100%; height: auto;">
+<tr>
+<th>Period</th>
+<th>Time</th>
+<th>Sunday</th>
+<th>Monday</th>
+<th>Tuesday</th>
+<th>Wednesday</th>
+<th>Thursday</th>
+</tr>
 
+</table>
+
+<div id="routineSummary"></div>
 
 <script>
-  const periods = [
-    { start: "8:30", end: "9:15" },
-    { start: "9:15", end: "9:55" },
-    { start: "9:55", end: "10:35" },
-    { start: "10:55", end: "11:35" },
-    { start: "11:35", end: "12:15" },
-    { start: "12:15", end: "12:50" },
-    { start: "12:50", end: "13:25" }
-  ];
 
-  function getCurrentPeriodIndex(now) {
-    for (let i = 0; i < periods.length; i++) {
-      const [sh, sm] = periods[i].start.split(":").map(Number);
-      const [eh, em] = periods[i].end.split(":").map(Number);
-      const start = new Date(now); start.setHours(sh, sm, 0, 0);
-      const end = new Date(now); end.setHours(eh, em, 0, 0);
-      if (now >= start && now < end) return i;
-    }
-    return -1;
-  }
+const periods=[
+{start:"8:30",end:"9:15"},
+{start:"9:15",end:"9:55"},
+{start:"9:55",end:"10:35"},
+{start:"10:55",end:"11:35"},
+{start:"11:35",end:"12:15"},
+{start:"12:15",end:"12:50"},
+{start:"12:50",end:"13:25"}
+];
 
-  function highlightRoutine() {
-    const now = new Date();
-    const dayIndex = now.getDay(); // Sunday = 0
-    const periodIndex = getCurrentPeriodIndex(now);
-    const table = document.getElementById("routineTable");
-    const summary = document.getElementById("routineSummary");
+const days=["Sun","Mon","Tue","Wed","Thu"];
 
-    // Reset highlights
-    for (let i = 0; i < table.rows.length; i++) {
-      const row = table.rows[i];
-      row.classList.remove("highlight");
-      for (let cell of row.cells) {
-        cell.classList.remove("highlight", "today-col");
-      }
-    }
 
-    let currentClass = "—", nextClass = "—";
-    let totalToday = 0;
-    let totalWeek = 0;
+/* =====================
+EDIT YOUR ROUTINE HERE
+===================== */
 
-    // Count total classes in the week
-    for (let r = 1; r < table.rows.length; r++) {
-      for (let c = 2; c <= 6; c++) {
-        const val = table.rows[r].cells[c].textContent.trim();
-        if (val !== "—" && val !== "") totalWeek++;
-      }
-    }
+const routineText=`
 
-    if (dayIndex >= 0 && dayIndex <= 4) {
-      const col = dayIndex + 2;
-      table.rows[0].cells[col].classList.add("today-col");
+Sun3 = Quran @Alim-1st-D
+Mon3 = Quran @Alim-1st-D
+Tue3 = Quran @Alim-1st-D
 
-      for (let i = 1; i < table.rows.length; i++) {
-        const cell = table.rows[i].cells[col];
-        cell.classList.add("today-col");
+Tue2 = Faraiz @Alim-1st-B
+Wed2 = Faraiz @Alim-1st-B
 
-        const content = cell.textContent.trim();
-        if (content !== "—" && content !== "") {
-          totalToday++;
-        }
-      }
+Thu2 = Balagat @Alim-1st-B
+Thu3 = Hewar @Fazil-1st-B
 
-      if (periodIndex !== -1) {
-        const row = table.rows[periodIndex + 1];
-        const cell = row.cells[col];
-        const content = cell.textContent.trim();
-        currentClass = (content === "—" || content === "") 
-          ? `Free (${periods[periodIndex].start} - ${periods[periodIndex].end})`
-          : `${content} (${periods[periodIndex].start} - ${periods[periodIndex].end})`;
-        row.classList.add("highlight");
-        cell.classList.add("highlight");
+Sun4 = Qawaid @Hons-2nd
+Mon4 = Qawaid @Hons-2nd
 
-        for (let i = periodIndex + 1; i < periods.length; i++) {
-          const nextCell = table.rows[i + 1]?.cells[col];
-          const nextContent = nextCell?.textContent.trim();
-          if (nextCell && nextContent !== "—" && nextContent !== "") {
-            nextClass = `${nextContent} (${periods[i].start} - ${periods[i].end})`;
-            break;
-          }
-        }
-      } else {
-        for (let i = 0; i < periods.length; i++) {
-          const [sh, sm] = periods[i].start.split(":").map(Number);
-          const start = new Date(now); start.setHours(sh, sm, 0, 0);
-          if (now < start) {
-            const nextCell = table.rows[i + 1]?.cells[col];
-            const nextContent = nextCell?.textContent.trim();
-            if (nextCell && nextContent !== "—" && nextContent !== "") {
-              nextClass = `${nextContent} (${periods[i].start} - ${periods[i].end})`;
-              break;
-            }
-          }
-        }
-      }
-    }
+Tue4 = Bangladesh studies @Hons-1st
+Wed4 = Bangladesh studies @Hons-1st
+Thu4 = Bangladesh studies @Hons-1st
 
-    summary.innerHTML = `
-      <span><strong>Current class:</strong> ${currentClass}</span>
-      <span><strong>Next class:</strong> ${nextClass}</span>
-      <span><strong>Total classes today:</strong> ${totalToday}</span>
-      <span><strong>Total classes in the week:</strong> ${totalWeek}</span>
-    `;
-  }
+Mon5 = Hadith @Alim-1st-D
+Tue5 = Hadith @Alim-1st-D
 
-  function enableRowClickHighlight() {
-    const rows = document.querySelectorAll("#routineTable tr");
-    rows.forEach((row, index) => {
-      if (index === 0) return; // skip header row
-      row.addEventListener("click", () => {
-        rows.forEach(r => r.classList.remove("selected"));
-        row.classList.add("selected");
-      });
-    });
-  }
+Wed5 = Usule Hadith @Fazil_1st_A
+Thu5 = Usule Hadith @Fazil_1st_A
 
-  window.onload = function () {
-    highlightRoutine();
-    enableRowClickHighlight();
-    setInterval(highlightRoutine, 1000); // refresh every 1 second
-  };
+Sun6 = Islamic history @Alim-2nd-B
+Mon6 = Islamic history @Alim-2nd-B
+
+Wed6 = Comparative religion @Hons-3rd
+Thu6 = Comparative religion @Hons-3rd
+
+Sun7 = Islamic history 2nd part @Fazil-3rd
+Mon7 = Islamic history 2nd part @Fazil-3rd
+
+Wed7 = Islamic history 1st part @Fazil-3rd
+Thu7 = Islamic history 1st part @Fazil-3rd
+
+Tue7 = Tadribul Lugah @Alim-1st-B
+
+`;
+
+
+/* ===================== */
+
+let routineMap={};
+
+function parseRoutine(){
+
+routineText.split("\n").forEach(line=>{
+
+line=line.trim();
+
+if(!line) return;
+
+let parts=line.split("=");
+
+let key=parts[0].trim();
+let val=parts[1].trim();
+
+routineMap[key]=val;
+
+});
+
+}
+
+
+function buildTable(){
+
+parseRoutine();
+
+const table=document.getElementById("routineTable");
+
+for(let i=0;i<periods.length;i++){
+
+let tr=document.createElement("tr");
+
+let p=i+1;
+
+tr.innerHTML=`
+<td>${p}</td>
+<td>${periods[i].start} - ${periods[i].end}</td>
+`;
+
+days.forEach(day=>{
+
+let code=day+p;
+
+let td=document.createElement("td");
+
+let val=routineMap[code];
+
+if(val){
+
+td.innerHTML=val.replace("@","<br>@");
+
+}else{
+
+td.textContent="—";
+
+}
+
+tr.appendChild(td);
+
+});
+
+table.appendChild(tr);
+
+}
+
+}
+
+
+function getCurrentPeriodIndex(now){
+
+for(let i=0;i<periods.length;i++){
+
+let [sh,sm]=periods[i].start.split(":").map(Number);
+let [eh,em]=periods[i].end.split(":").map(Number);
+
+let start=new Date(now);
+start.setHours(sh,sm,0,0);
+
+let end=new Date(now);
+end.setHours(eh,em,0,0);
+
+if(now>=start && now<end) return i;
+
+}
+
+return -1;
+
+}
+
+
+function highlightRoutine(){
+
+const now=new Date();
+const dayIndex=now.getDay();
+const table=document.getElementById("routineTable");
+const summary=document.getElementById("routineSummary");
+
+const periodIndex=getCurrentPeriodIndex(now);
+
+for(let r of table.rows){
+
+r.classList.remove("highlight");
+
+for(let c of r.cells){
+
+c.classList.remove("highlight","today-col");
+
+}
+
+}
+
+let currentClass="—";
+let nextClass="—";
+let totalToday=0;
+let totalWeek=0;
+
+for(let r=1;r<table.rows.length;r++){
+
+for(let c=2;c<=6;c++){
+
+let val=table.rows[r].cells[c].textContent.trim();
+
+if(val!=="—") totalWeek++;
+
+}
+
+}
+
+if(dayIndex>=0 && dayIndex<=4){
+
+let col=dayIndex+2;
+
+table.rows[0].cells[col].classList.add("today-col");
+
+for(let r=1;r<table.rows.length;r++){
+
+let cell=table.rows[r].cells[col];
+
+cell.classList.add("today-col");
+
+let val=cell.textContent.trim();
+
+if(val!=="—") totalToday++;
+
+}
+
+if(periodIndex!=-1){
+
+let row=table.rows[periodIndex+1];
+let cell=row.cells[col];
+
+let val=cell.textContent.trim();
+
+if(val==="—"){
+
+currentClass=`Free (${periods[periodIndex].start}-${periods[periodIndex].end})`;
+
+}else{
+
+currentClass=`${val} (${periods[periodIndex].start}-${periods[periodIndex].end})`;
+
+}
+
+row.classList.add("highlight");
+cell.classList.add("highlight");
+
+for(let i=periodIndex+1;i<periods.length;i++){
+
+let nextCell=table.rows[i+1].cells[col];
+let val=nextCell.textContent.trim();
+
+if(val!=="—"){
+
+nextClass=`${val} (${periods[i].start}-${periods[i].end})`;
+
+break;
+
+}
+
+}
+
+}
+
+}
+
+summary.innerHTML=`
+
+<span><b>Current class:</b> ${currentClass}</span>
+<span><b>Next class:</b> ${nextClass}</span>
+<span><b>Total classes today:</b> ${totalToday}</span>
+<span><b>Total classes this week:</b> ${totalWeek}</span>
+
+`;
+
+}
+
+
+function enableRowClick(){
+
+const rows=document.querySelectorAll("#routineTable tr");
+
+rows.forEach((row,index)=>{
+
+if(index===0) return;
+
+row.onclick=()=>{
+
+rows.forEach(r=>r.classList.remove("selected"));
+
+row.classList.add("selected");
+
+};
+
+});
+
+}
+
+
+buildTable();
+enableRowClick();
+highlightRoutine();
+
+setInterval(highlightRoutine,1000);
+
 </script>
 
 </body>
 </html>
-
